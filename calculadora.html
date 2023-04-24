@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <title>calculadora</title>
+        <meta charset="UTF-8">
+        <style>
+            body{
+                background: #ffff url("ft/nazare.jpg") right top fixed;
+            }
+        
+            </style>
+
+    
+            <form>
+<body>
+    <div class="">
+        <script>
+        var primeiroValor = parseFloat(prompt ('qual o primeiro valor?'));
+        
+        do{
+        var operação = prompt ('digite a operação matemática:');
+        } while(operação!= "+" && operação!= "-" && operação!="*" && operação!="/")
+            
+        var segundoValor = parseFloat(prompt ('qual o segundo valor?'));
+        switch(operação){
+            case "+":
+            resultado = primeiroValor+segundoValor;
+            alert(resultado)
+            break
+
+            case "-":
+            resultado = primeiroValor-segundoValor;
+            alert(resultado)
+            break
+    
+            case"*":
+            resultado = primeiroValor*segundoValor;
+            alert(resultado)
+            break
+
+            case"/":
+            resultado = primeiroValor/segundoValor;
+            alert(resultado)
+            break
+            }
+        
+        </script>
+    </div>
+</body>
+     </form>
+</html>
+
+
+    

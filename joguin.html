@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  	<title>Game Tamagotchi</title>
+  	<meta charset="utf-8">
+  	<link rel="stylesheet" type="text/css" href="estilo.css">
+
+    
+<style type="text/css">
+body{
+  overflow: hidden;
+}
+    
+.pet{
+  border-radius: 10px
+  width: 88px;
+  height: 88px;
+}
+    
+.bloco{
+  width: 400px;
+}
+    
+.botao{
+  padding: 6px 50px;
+  background: #777;h
+  color: #f2f2f2;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+}
+    
+.botao:hover{
+  background: #222
+}
+    
+.botao:active{
+  background: #777;
+}
+    
+.barra
+{
+  width: 100%
+  background: #99cc00;
+  margin: 5px 10px;
+  border-radius: 4px;
+  padding: 3px 3px;
+}
+    
+.lado{
+  float: left;
+  margin: 10px 25px;
+  width: 120px;
+}
+    
+#blocoBotao{
+  padding: 115px 0px;
+}
+    
+#mensagem{
+  color: red;
+}
+    
+    
+    </style>
+
+  </head>
+  <body>
+
+  	<div id="bloco">
+  	  <div id="blocoImagem">
+  	   <img src="imag/hype.png" class="pet" id="pet" alt="imagem">
+  	  </div>
+  	  <div class="lado"><h2><strong>Status</strong></h2></div>
+  	  Fome:<div id="fome" class="barra">100%</div>
+  	  Higiene:<div id="higiene" class="barra">100%</div>
+  	  Sono:<div id="sono" class="barra">100%</div>
+  	  Diversão:<div id="diversao" class="barra">100%</div>
+  	  Social:<div id="social" class="barra">100%</div>
+  	  <div id="blocoBotao">
+  	  	<p><span class="botao" onclick="Comer()">Comer</span></p>
+  	  	<p><span class="botao" onclick="Comer()">Banho</span></p>
+  	  	<p><span class="botao" onclick="Comer()">Dormir</span></p>
+  	  	<p><span class="botao" onclick="Comer()">Brincar</span></p>
+  	  	<p><span class="botao" onclick="Comer()">Conversar</span></p>
+  	  </div>
+  	  <h3><div id="mensagem"></div></h3>
+  	</div>
+  	
+
+  	<script src="script.js">
+     
+    var fome = 100;
+    var higiene = 100;
+    var sono = 100;
+    var diversao = 100;
+    var social = 100;
+
+functionLoop(time = 2){
+    var total = fome + higiene + sono + diversao + social;
+
+    if(fome <= 0 || higiene <= 0 || sono <= 0 || diversao <= 0 || social <= 0){
+        document.getElementById('pet').src="img/preto.jpg"
+        document.getElementById('pet').innerHTML = 'você deixou seu pet morrer,atualize a página';
+    
+    }else if(total > 400){
+      document.getElementById('pet').src="img/azul.jpg"
+    }else if(total > 300){
+      document.getElementById('pet').src="img/verde.jpg"
+    }else if(total > 200){
+      document.getElementById('pet').src="img/cinza.jpg"
+    }else if(total > 100){
+      document.getElementById('pet').src="img/vermelho.jpg"
+    }else if(total > 50){
+      document.getElementById('pet').src="img/amarelo.jpg"
+    }
+
+    fome = fome - parseInt(time);
+    higiene = higiene - parseInt(time);
+    sono = sono - parseInt(time);
+    diversao = diversao - parseInt(time);
+    social = social - parseInt(time);
+    
+    document.getElementById('fome').innerHTML = fome + '%';
+    
+    document.getElementById('higiene').innerHTML = higiene + '%';
+    
+    document.getElementById('nome').innerHTML = sono + '%';
+    
+    document.getElementById('diversao').innerHTML = diversao + '%';
+    
+    document.getElementById('social').innerHTML = social + '%'; 
+  }
+    
+   function Start(){
+    
+    var temporizador = setInterval(Loop, 1000);
+   }
+   function Comer(){
+    fome = 100;
+    document.getElementById('fome').innerHTML = fome + '%';
+    document.getElementById('fome').style.width = fome + 'px';
+   }
+
+   function Banho(){
+    higiene = 100;
+    document.getElementById('higiene').innerHTML = higiene + '%';
+    document.getElementById('higiene').style.width = higiene + 'px';
+   }
+   
+   function Dormir(){
+    sono = 100;
+    document.getElementById('sono').innerHTML = sono + '%';
+    document.getElementById('sono').style.width = sono + 'px';
+   }
+
+   function Brincar(){
+    diversao = 100;
+    document.getElementById('diversao').innerHTML = diversao + '%';
+    document.getElementById('diversao').style.width = diversao + 'px';
+   }
+
+   function Conversar(){
+    social = 100;
+    document.getElementById('social').innerHTML = social + '%';
+    document.getElementById('social').style.width = social + 'px';
+   }
+   </script>
+
+  </body>
+</html>
